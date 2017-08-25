@@ -25,7 +25,10 @@ module League30
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.generators do |g|
+      g.template_engine :haml
+      g.test_framework  :rspec
+      g.orm             :active_record
+    end
   end
 end
