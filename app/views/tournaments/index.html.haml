@@ -3,14 +3,18 @@
 %table
   %thead
     %tr
-      %th
+      %th Name
+      %th Teams
+      %th Active
       %th
       %th
 
   %tbody
     - @tournaments.each do |tournament|
       %tr
-        %td= link_to 'Show', tournament
+        %td= tournament.name
+        %td= tournament.required_teams
+        %td= tournament.active
         %td= link_to 'Edit', edit_tournament_path(tournament)
         %td= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' }
 

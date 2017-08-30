@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Tournament, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:required_teams) }
+    it { is_expected.to validate_presence_of(:active) }
+
+    it { is_expected.to validate_numericality_of(:required_teams).is_greater_than(1) }
+  end
 end
