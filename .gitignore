@@ -21,7 +21,6 @@
 /log/.keep
 /tmp/.keep
 /vendor
-/config/database.yml
 /config/cable.yml
 /config/secrets.yml
 /.env
