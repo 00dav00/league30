@@ -22,5 +22,4 @@
 /tmp/.keep
 /vendor
 /config/cable.yml
-/config/secrets.yml
 /.env
