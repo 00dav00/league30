@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "tournaments/edit", type: :view do
   before(:each) do
-    @tournament = assign(:tournament, Tournament.create!())
+    @tournament = assign(:tournament, FactoryGirl.create(:tournament))
   end
 
   it "renders the edit tournament form" do

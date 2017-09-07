@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  username: <%= ENV.fetch("DB_USER") { 5 } %>
+  password: <%= ENV.fetch("DB_PASS") { 5 } %>
+
+development:
+  <<: *default
+  database: league30_development
+
+test:
+  <<: *default
+  database: league30_test
+
+production:
+  <<: *default
+  database: league30_production
