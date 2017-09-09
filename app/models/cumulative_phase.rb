@@ -1,0 +1,2 @@
+class CumulativePhase < Phase
+end

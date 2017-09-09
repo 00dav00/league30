@@ -8,6 +8,7 @@
       %th Active
       %th
       %th
+      %th
 
   %tbody
     - @tournaments.each do |tournament|
@@ -15,8 +16,10 @@
         %td= tournament.name
         %td= tournament.required_teams
         %td= tournament.active
+        %td= link_to 'Phases', tournament_phases_path(tournament)
         %td= link_to 'Edit', edit_tournament_path(tournament)
         %td= link_to 'Destroy', tournament, method: :delete, data: { confirm: 'Are you sure?' }
+
 
 %br
 

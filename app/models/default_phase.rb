@@ -1,0 +1,2 @@
+class DefaultPhase < Phase
+end
