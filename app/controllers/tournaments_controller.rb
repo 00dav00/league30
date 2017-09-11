@@ -32,7 +32,10 @@ class TournamentsController < ApplicationController
   def update
     respond_to do |format|
       if @tournament.update(tournament_params)
-        format.html { redirect_to tournaments_path, notice: 'Tournament was successfully updated.' }
+        format.html {
+          redirect_to tournament_phases_path(@tournament),
+            notice: 'Tournament was successfully updated.'
+        }
         format.json { render :show, status: :ok, location: @tournament }
       else
         format.html { render :edit }
