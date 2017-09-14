@@ -8,6 +8,7 @@ class Phase < ApplicationRecord
 
   belongs_to :tournament
 
+  validates :type, presence: true
   validates :type, inclusion: { in: Phase::TYPES.values }
   validates :position_in_tournament, numericality: { greater_than: 0 }
   validates :position_in_tournament, uniqueness: { scope: :tournament_id }

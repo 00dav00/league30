@@ -6,9 +6,6 @@ class PhasesController < ApplicationController
     @phases = @tournament.phases
   end
 
-  def show
-  end
-
   def new
     @phase = Phase.new
   end
