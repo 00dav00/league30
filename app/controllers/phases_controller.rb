@@ -1,34 +1,28 @@
 class PhasesController < ApplicationController
+  before_action :set_tournament, only: [:index, :create, :new]
   before_action :set_phase, only: [:show, :edit, :update, :destroy]
 
-  # GET /phases
-  # GET /phases.json
   def index
-    @phases = Phase.all
+    @phases = @tournament.phases
   end
 
-  # GET /phases/1
-  # GET /phases/1.json
-  def show
-  end
-
-  # GET /phases/new
   def new
     @phase = Phase.new
   end
 
-  # GET /phases/1/edit
   def edit
   end
 
-  # POST /phases
-  # POST /phases.json
   def create
-    @phase = Phase.new(phase_params)
+    @phase = Phase.build_phase_for(@tournament, phase_params)
 
     respond_to do |format|
       if @phase.save
-        format.html { redirect_to @phase, notice: 'Phase was successfully created.' }
+        format.html {
+          redirect_to tournament_phases_path(@tournament),
+            notice: 'Phase was successfully created.'
+        }
+
         format.json { render :show, status: :created, location: @phase }
       else
         format.html { render :new }
@@ -37,12 +31,13 @@ class PhasesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /phases/1
-  # PATCH/PUT /phases/1.json
   def update
     respond_to do |format|
       if @phase.update(phase_params)
-        format.html { redirect_to @phase, notice: 'Phase was successfully updated.' }
+        format.html {
+          redirect_to tournament_phases_path(@phase.tournament),
+            notice: 'Phase was successfully updated.'
+        }
         format.json { render :show, status: :ok, location: @phase }
       else
         format.html { render :edit }
@@ -51,24 +46,30 @@ class PhasesController < ApplicationController
     end
   end
 
-  # DELETE /phases/1
-  # DELETE /phases/1.json
   def destroy
     @phase.destroy
     respond_to do |format|
-      format.html { redirect_to phases_url, notice: 'Phase was successfully destroyed.' }
+      format.html {
+        redirect_to tournament_phases_path(@phase.tournament),
+          notice: 'Phase was successfully destroyed.'
+      }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_phase
-      @phase = Phase.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def phase_params
-      params.fetch(:phase, {})
-    end
+  def set_tournament
+    @tournament = Tournament.find(params[:tournament_id])
+  end
+
+  def set_phase
+    @phase = Phase.find(params[:id])
+  end
+
+  def phase_params
+    params
+      .require(:phase)
+      .permit(:name, :type)
+  end
 end

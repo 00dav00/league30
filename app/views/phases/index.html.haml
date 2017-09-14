@@ -3,17 +3,21 @@
 %table
   %thead
     %tr
-      %th
+      %th Name
+      %th Type
       %th
       %th
 
   %tbody
     - @phases.each do |phase|
       %tr
-        %td= link_to 'Show', phase
+        %td= phase.name
+        %td= phase.type.to_s.underscore.humanize
         %td= link_to 'Edit', edit_phase_path(phase)
         %td= link_to 'Destroy', phase, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Phase', new_phase_path
+= link_to 'New Phase', new_tournament_phase_path(@tournament)
+\|
+= link_to 'Back', tournaments_path
