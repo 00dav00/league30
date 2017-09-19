@@ -29,10 +29,7 @@ gem 'mini_magick'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
-  gem 'pry'
-  gem 'pry-clipboard'
-  gem 'pry-doc'
-  gem 'pry-rescue'
+  gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'rspec-rails', '~> 3.6.0'
 end

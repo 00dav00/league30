@@ -1,0 +1,24 @@
+%h1 Listing teams
+
+%table
+  %thead
+    %tr
+      %th Short name
+      %th Name
+      %th Full name
+      %th Logo image
+      %th
+      %th
+
+  %tbody
+    - @teams.each do |team|
+      %tr
+        %td= team.short_name
+        %td= team.name
+        %td= team.full_name
+        %td= link_to 'Edit', edit_team_path(team)
+        %td= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Team', new_team_path

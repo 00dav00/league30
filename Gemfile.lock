@@ -52,12 +52,12 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
+    byebug (9.1.0)
     carrierwave (1.1.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    clipboard (1.1.1)
-    coderay (1.1.1)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -98,7 +98,6 @@ GEM
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
     i18n (0.8.6)
-    interception (0.5)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -126,15 +125,9 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-clipboard (0.1.1)
-      clipboard
-      pry
-    pry-doc (0.11.1)
-      pry (~> 0.9)
-      yard (~> 0.9)
-    pry-rescue (1.4.5)
-      interception (>= 0.5)
-      pry
+    pry-byebug (3.5.0)
+      byebug (~> 9.1)
+      pry (~> 0.10)
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
@@ -233,7 +226,6 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
-    yard (0.9.9)
 
 PLATFORMS
   ruby
@@ -250,10 +242,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick
   pg (~> 0.18)
-  pry
-  pry-clipboard
-  pry-doc
-  pry-rescue
+  pry-byebug
   pry-stack_explorer
   puma (~> 3.7)
   rails (~> 5.1.3)
