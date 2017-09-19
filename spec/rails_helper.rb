@@ -30,6 +30,10 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryGirl::Syntax::Methods
+
+  # config.before(:each, carrierwave: true) do
+  #   CarrierWave::Uploader::Base.descendants.each { |u| u.enable_processing = true }
+  # end
 end
 
 Shoulda::Matchers.configure do |config|
