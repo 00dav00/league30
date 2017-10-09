@@ -12,7 +12,7 @@ RSpec.describe TournamentsController, type: :routing do
     end
 
     it "routes to #show" do
-      expect(:get => "/tournaments/1").to route_to("tournaments#show", :id => "1")
+      expect(:get => "/tournaments/1").not_to be_routable
     end
 
     it "routes to #edit" do

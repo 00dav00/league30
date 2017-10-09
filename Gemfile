@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
-  "https://github.com/#{repo_name}.git"
+  'https://github.com/#{repo_name}.git'
 end
 
 gem 'haml', '~> 5.0.2'
@@ -20,6 +20,10 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'cocoon'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -27,10 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
-  gem 'pry'
-  gem 'pry-clipboard'
-  gem 'pry-doc'
-  gem 'pry-rescue'
+  gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'rspec-rails', '~> 3.6.0'
 end
@@ -49,7 +50,5 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers',
-    git: 'https://github.com/thoughtbot/shoulda-matchers.git',
-    branch: 'rails-5'
+  gem 'shoulda-matchers','>= 3.1.1'
 end
