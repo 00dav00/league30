@@ -1,0 +1,6 @@
+.nested-fields
+  .field
+    = f.label :team
+    = f.select :team_id, Team.all.map { |team| [team.name, team.id] }
+
+    = link_to_remove_association 'Remove team', f

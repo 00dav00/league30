@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :teams, except: [:show]
-  resources :tournaments do
+  resources :tournaments, except: [:show] do
     resources :phases, shallow: true, except: [:show]
     resources :contestants
   end

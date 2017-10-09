@@ -15,5 +15,12 @@
   = f.label :active
   = f.check_box :active
 
+  %h3 Contestants
+  #contestants
+    = f.fields_for :contestants do |contestant|
+      = render 'contestant_fields', f: contestant
+    .links
+      = link_to_add_association 'Add contestant', f, :contestants
+
   .actions
     = f.submit 'Save'
