@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+  db:
+    image: postgres:10.1
+    restart: unless-stopped
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  app:
+    build: .
+    command: bundle exec puma -C config/puma/development.rb
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      PGHOST: db
+      PGUSER: postgres
+
+volumes:
+  app:
+    driver: local
+  pgdata:
+    driver: local
