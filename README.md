@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://travis-ci.org/00dav00/league30.svg?branch=master)](https://travis-ci.org/00dav00/league30)
 
-Things you may want to cover:
+## Setup local environment
 
-* Ruby version
+- Install docker version 17.12 and Docker Compose 1.16. To build and start the containers to develop locally.
 
-* System dependencies
+  ```bash
+  docker-compose up -d --build
+  ```
 
-* Configuration
+  Docker compose will build 2 containers:
 
-* Database creation
+  - app - Puma server running on the local port 3000
+  - db - Database with PostgresSQL 10
 
-* Database initialization
+- Create the database and run migrations
 
-* How to run the test suite
+  ```bash
+  docker-compose run app ./bin/setup
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+- To execute comands inside of the docker follow this sintaxis.
 
-* Deployment instructions
+  ```bash
+  docker-compose run <conatiner name> <command>
+  docker-compose run app ./bin/rails c
+ ```
 
-* ...
