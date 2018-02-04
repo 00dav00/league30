@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup local environment
 
-Things you may want to cover:
+- Install docker version 17.12 and Docker Compose 1.16. To build and start the containers to develop locally.
 
-* Ruby version
+  ```bash
+  docker-compose up -d --build
+  ```
 
-* System dependencies
+  Docker compose will build 2 containers:
 
-* Configuration
+  - app - Puma server running on the local port 3000
+  - db - Database with PostgresSQL 10
 
-* Database creation
+- Create the database and run migrations
 
-* Database initialization
+  ```bash
+  docker-compose run app ./bin/setup
+  ```
 
-* How to run the test suite
+- To execute comands inside of the docker follow this sintaxis.
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```bash
+  docker-compose run <conatiner name> <command>
+  docker-compose run app ./bin/rails c
+ ```
 
-* Deployment instructions
-
-* ...
